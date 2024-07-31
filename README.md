@@ -29,6 +29,14 @@ cd monetizze-api/
 ```
 docker-compose up -d
 ```
+- Acesse o container com o comando:
+```
+docker exec -it monetizze-loteria bash
+```
+- Execute o comando:
+```
+composer install
+```
 ✅ Pronto! Agora você está pronto para usar o projeto na sua máquina com essas etapas simples.
 
 - Para gerar os tickets basta acessar a rota alterando os parâmetros para a quantidade de bilhetes e numero de dezenas que deseja:
