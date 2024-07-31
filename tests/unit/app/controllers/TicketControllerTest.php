@@ -33,6 +33,20 @@ class TicketControllerTest extends TestCase
         $this->assertArrayHasKey('error', $data);
     }
 
+    public function test_generate_tickets_quantity_not_defined_exception()
+    {
+        $generate = $this->controller->generate(0, 6);
+        $data = json_decode($generate, true);
+        $this->assertArrayHasKey('error', $data);
+    }
+
+    public function test_generate_tickets_num_dezenas_not_defined_exception()
+    {
+        $generate = $this->controller->generate(1, 0);
+        $data = json_decode($generate, true);
+        $this->assertArrayHasKey('error', $data);
+    }
+
     public function test_compare_with_winning_ticket()
     {
         $compare = $this->controller->compareWithWinningTicket(1,6);

@@ -24,12 +24,28 @@ class TicketServiceTest extends TestCase
         $this->assertCount(6, $generate[1], 'Array does not have 6 positions at key 1');
     }
 
-    public function test_generate_multiple_tickets_quantity_exeption()
+    public function test_generate_multiple_tickets_exeption()
     {
         $this->expectException(Exception::class);
         $this->expectExceptionMessage("Quantidade de bilhetes deve estar entre 1 e 50.");
 
         $this->service->generateMultipleTickets(51,6);
+    }
+
+    public function test_generate_multiple_tickets_quantity_not_defined_exeption()
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage("Parâmetros quantity e num_dezenas devem ser informados para prosseguir.");
+
+        $this->service->generateMultipleTickets(0,6);
+    }
+
+    public function test_generate_multiple_tickets_num_dezenas_not_defined_exeption()
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage("Parâmetros quantity e num_dezenas devem ser informados para prosseguir.");
+
+        $this->service->generateMultipleTickets(1,0);
     }
 
     public function test_get_winning_ticket()

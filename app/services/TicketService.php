@@ -16,6 +16,10 @@ class TicketService
 
     public function generateMultipleTickets(int $quantity, int $numDezenas): array
     {
+        if ($quantity === 0 || $numDezenas === 0) {
+            throw new Exception("Parâmetros quantity e num_dezenas devem ser informados para prosseguir.");
+        }
+
         if ($quantity < 1 || $quantity > 50) {
             throw new Exception("Quantidade de bilhetes deve estar entre 1 e 50.");
         }
