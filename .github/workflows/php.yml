@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      run: composer install --ignore-platform-reqs --prefer-dist --no-progress
 
     - name: Run test suite
       run: php vendor/bin/phpunit tests
